@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transformers: El Código Funcional de Cybertron</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+<style>
+body{margin:0;font-family:'Orbitron',sans-serif;background:radial-gradient(circle at center,#0a0f1f,#000);color:#00f7ff;}
+.screen{display:none;min-height:100vh;padding:40px 20px;text-align:center;animation:fadeIn 1s ease-in-out;}
+.active{display:flex;flex-direction:column;justify-content:center;align-items:center;}
+h1,h2{text-transform:uppercase;text-shadow:0 0 25px #00f7ff;}
+.cyber-box{border:2px solid #00f7ff;padding:25px;border-radius:15px;box-shadow:0 0 30px #00f7ff;background:rgba(0,0,0,0.75);max-width:950px;margin-top:25px;}
+.formula{font-size:32px;margin:25px 0;}
+.button{margin:15px;padding:15px 40px;background:linear-gradient(45deg,#00f7ff,#0066ff);border:none;border-radius:10px;font-weight:bold;cursor:pointer;box-shadow:0 0 20px #00f7ff;transition:0.3s;}
+.button:hover{transform:scale(1.08);box-shadow:0 0 40px #00f7ff;}
+img{max-width:400px;margin:15px;}
+iframe{width:560px;height:315px;max-width:100%;margin:15px;}
+input{padding:12px;font-size:22px;text-align:center;width:180px;letter-spacing:6px;}
+.timer{position:fixed;top:15px;right:25px;font-size:22px;text-shadow:0 0 15px red;}
+.success{color:#00ff88;text-shadow:0 0 25px #00ff88;}
+.failure{color:#ff0044;text-shadow:0 0 25px #ff0044;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:768px){iframe{height:220px;}}
+</style>
+</head>
+<body>
+
+<div class="timer" id="timer" style="display:none;"></div>
+
+<!-- INTRO -->
+<div id="screen0" class="screen active">
+<h1>Transformers: El Código Funcional de Cybertron</h1>
+<img src="IMAGEN_PORTADA.jpg" alt="Imagen portada">
+<iframe src="https://www.youtube.com/embed/VIDEO_INTRO1" title="Video intro 1" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/VIDEO_INTRO2" title="Video intro 2" frameborder="0" allowfullscreen></iframe>
+<div class="cyber-box">
+<p>Cybertron está al borde de la destrucción. Megatron ha sellado el núcleo energético mediante un sistema criptográfico basado en representaciones de funciones.</p>
+<p>No basta con calcular: cada equipo deberá <strong>representar correctamente</strong> cada función, identificando dominio, cortes, asíntotas y comportamiento global.</p>
+<p>Solo una interpretación gráfica rigurosa permitirá descifrar el código final.</p>
+<p><strong>Elegid duración de misión:</strong></p>
+<button class="button" onclick="selectMode(90)">Modo Épico – 90 minutos</button>
+<button class="button" onclick="selectMode(60)">Modo Rápido – 60 minutos</button>
+  
+</div>
+    <p>Autor: Joaquín Candañedo.<br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="./resources/CC_BY_SA.png" alt="Creative Commons Reconocimiento - Compartir Igual"></a></p>
+</div>
+
+<!-- RETO 1 -->
+<div id="screen1" class="screen">
+<h2>Reto 1 – Trayectoria de Bumblebee</h2>
+<img src="IMAGEN_RETO1.jpg" alt="Imagen reto 1">
+<iframe src="https://www.youtube.com/embed/VIDEO1" title="Video reto 1" frameborder="0" allowfullscreen></iframe>
+<div class="cyber-box">
+<p>Bumblebee atraviesa un campo de meteoritos siguiendo una trayectoria parabólica. Un error en la representación puede provocar una colisión fatal.</p>
+<div class="formula">$$f(x)=x^2-4x-5$$</div>
+<p>Debes representar correctamente la parábola identificando:</p>
+<p>• Cortes con los ejes.</p>
+<p>• Vértice y eje de simetría.</p>
+<p>• Concavidad.</p>
+<p>🔐 Código = $|f(0)|$ + número de soluciones reales</p>
+</div>
+<button class="button" onclick="nextScreen(2)">Continuar</button>
+</div>
+
+<!-- RETO 2 -->
+<div id="screen2" class="screen">
+<h2>Reto 2 – El Escudo de Ironhide</h2>
+<img src="IMAGEN_RETO2.jpg" alt="Imagen reto 2">
+<iframe src="https://www.youtube.com/embed/VIDEO2" title="Video reto 2" frameborder="0" allowfullscreen></iframe>
+<div class="cyber-box">
+<p>El escudo energético responde a una función racional. Interpretar mal una asíntota abriría una brecha irreversible.</p>
+<div class="formula">$$f(x)=\frac{2x+1}{x-3}$$</div>
+<p>Representa con precisión:</p>
+<p>• Dominio.</p>
+<p>• Asíntota vertical.</p>
+<p>• Asíntota horizontal.</p>
+<p>• Corte con el eje Y.</p>
+<p>🔐 Código = $|\text{AV}|$ + numerador de $f(0)$</p>
+</div>
+<button class="button" onclick="nextScreen(3)">Continuar</button>
+</div>
+
+<!-- RETO 3 -->
+<div id="screen3" class="screen">
+<h2>Reto 3 – La Grieta de Shockwave</h2>
+<img src="IMAGEN_RETO3.jpg" alt="Imagen reto 3">
+<iframe src="https://www.youtube.com/embed/VIDEO3" title="Video reto 3" frameborder="0" allowfullscreen></iframe>
+<div class="cyber-box">
+<p>Una grieta dimensional descrita por una función radical amenaza con expandirse. Solo comprendiendo su dominio real podrá cerrarse.</p>
+<div class="formula">$$f(x)=\sqrt{2x-1}$$</div>
+<p>Representa correctamente:</p>
+<p>• Dominio exacto.</p>
+<p>• Punto inicial.</p>
+<p>• Corte con el eje X.</p>
+<p>• Comportamiento creciente.</p>
+<p>🔐 Código = extremo inferior del dominio + corte con X</p>
+</div>
+<button class="button" onclick="nextScreen(4)">Continuar</button>
+</div>
+
+<!-- RETO 4 -->
+<div id="screen4" class="screen">
+<h2>Reto 4 – Núcleo de Optimus Prime</h2>
+<img src="IMAGEN_RETO4.jpg" alt="Imagen reto 4">
+<iframe src="https://www.youtube.com/embed/VIDEO4" title="Video reto 4" frameborder="0" allowfullscreen></iframe>
+<div class="cyber-box">
+<p>El núcleo energético depende de un crecimiento exponencial. Comprender su comportamiento asintótico es vital para estabilizarlo.</p>
+<div class="formula">$$f(x)=3^x-2$$</div>
+<p>Analiza rigurosamente:</p>
+<p>• Asíntota horizontal.</p>
+<p>• Corte con el eje Y.</p>
+<p>• Corte con el eje X.</p>
+<p>• Comportamiento cuando $x \to \pm\infty$.</p>
+<p>🔐 Código = $|\text{AH}|$ + $|f(0)|$</p>
+</div>
+<button class="button" onclick="nextScreen(5)">Ir al Candado</button>
+</div>
+
+<!-- CANDADO -->
+<div id="screen5" class="screen">
+<h2>Introduce el Código Final</h2>
+<img src="IMAGEN_CANDADO.jpg" alt="Imagen candado">
+<div class="cyber-box">
+<p>El candado central integra las cuatro representaciones gráficas. Un solo error en dominio, asíntotas o cortes arruinará la misión.</p>
+<p>Revisa cuidadosamente cada gráfica antes de introducir el código final.</p>
+<p>Cybertron depende de vuestra precisión matemática.</p>
+</div>
+<input type="text" id="codeInput" placeholder="____">
+<button class="button" onclick="checkCode()">Desbloquear</button>
+</div>
+
+<!-- ÉXITO -->
+<div id="screen6" class="screen">
+<h2 class="success">¡Cybertron Salvado!</h2>
+<img src="IMAGEN_EXITO.jpg" alt="Imagen éxito">
+<iframe src="https://www.youtube.com/embed/VIDEO_EXITO" title="Video éxito" frameborder="0" allowfullscreen></iframe>
+<div class="cyber-box">
+<p>Las representaciones fueron exactas. Dominio, cortes y asíntotas perfectamente identificados.</p>
+<p>Optimus Prime reconoce vuestra precisión matemática. El núcleo energético vuelve a brillar.</p>
+</div>
+</div>
+
+<!-- FRACASO -->
+<div id="screen7" class="screen">
+<h2 class="failure">Megatron Ha Ganado...</h2>
+<img src="IMAGEN_FRACASO.jpg" alt="Imagen fracaso">
+<iframe src="https://www.youtube.com/embed/VIDEO_FRACASO" title="Video fracaso" frameborder="0" allowfullscreen></iframe>
+<div class="cyber-box">
+<p>Alguna representación no fue completamente correcta.</p>
+<p>Revisad dominio, asíntotas y cortes con los ejes. Incluso el menor error gráfico puede alterar el código final.</p>
+<p>Cybertron aún puede salvarse. Volved a intentarlo.</p>
+</div>
+<button class="button" onclick="restartMission()">Reintentar</button>
+</div>
+
+<script>
+let totalTime = 0;
+let timerInterval = null;
+
+// Sonido de botón
+function playClickSound(){
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(600, ctx.currentTime);
+    gain.gain.setValueAtTime(0.1, ctx.currentTime);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.1);
+}
+
+// Añadir sonido a todos los botones
+setTimeout(()=>{
+    document.querySelectorAll('.button').forEach(btn=>{
+        btn.addEventListener('click', playClickSound);
+    });
+},500);
+
+function selectMode(minutes){
+    totalTime = minutes * 60;
+    document.getElementById('timer').style.display = 'block';
+    nextScreen(1);
+    startTimer();
+}
+
+function nextScreen(n){
+    document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+    const target = document.getElementById('screen' + n);
+    if(target){ target.classList.add('active'); window.scrollTo(0,0); }
+}
+
+function checkCode(){
+    const code = document.getElementById('codeInput').value.trim();
+    clearInterval(timerInterval);
+    if(code === "7413"){
+        nextScreen(6);
+    } else {
+        nextScreen(7);
+    }
+}
+
+function startTimer(){
+    clearInterval(timerInterval);
+    timerInterval = setInterval(function(){
+        totalTime--;
+        const minutes = Math.floor(totalTime / 60);
+        const seconds = totalTime % 60;
+        document.getElementById('timer').innerHTML =
+            "Tiempo restante: " +
+            (minutes < 10 ? "0" : "") + minutes + ":" +
+            (seconds < 10 ? "0" : "") + seconds;
+        if(totalTime <= 0){ clearInterval(timerInterval); nextScreen(7); }
+    }, 1000);
+}
+
+function restartMission(){
+    clearInterval(timerInterval);
+    timerInterval = null;
+    totalTime = 0;
+    const timer = document.getElementById('timer');
+    timer.style.display = 'none';
+    timer.innerHTML = '';
+    document.getElementById('codeInput').value = '';
+    nextScreen(0);
+}
+</script>
+
+</body>
+</html>
