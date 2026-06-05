@@ -33,6 +33,9 @@ input{padding:12px;font-size:22px;text-align:center;width:180px;letter-spacing:6
 .failure{color:#ff0044;text-shadow:0 0 25px #ff0044;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 @media(max-width:768px){iframe{height:220px;}}
+
+#teacherPanel{ position:fixed; bottom:0; left:0; background:rgba(0,0,0,0.97); color:#00f7ff; border-top:2px solid #00f7ff; border-right:2px solid #00f7ff; padding:16px; font-size:13px; font-family:'Orbitron',sans-serif; display:none; z-index:9999; text-align:left; box-shadow:0 0 25px #00f7ff; max-width:320px; line-height:1.5; text-shadow:0 0 10px #00f7ff; }
+
 </style>
 </head>
 <body>
@@ -52,7 +55,7 @@ input{padding:12px;font-size:22px;text-align:center;width:180px;letter-spacing:6
 <p><strong>Elegid duración de misión:</strong></p>
 <button class="button" onclick="selectMode(90)">Modo Épico – 90 minutos</button>
 <button class="button" onclick="selectMode(60)">Modo Rápido – 60 minutos</button>
-  
+hr style="width:60%; border-color:#00f7ff;"> <p style=" color:#00f7ff; font-size:0.9rem; opacity:0.85; text-shadow:0 0 10px #00f7ff; "> ⚡ Acceso al Archivo de Teletraan-1 </p> <input type="password" id="teacherPass" placeholder="Código Autobot" style=" background:black; border:2px solid #00f7ff; color:#00f7ff; "> <p style=" font-size:0.75rem; opacity:0.6; max-width:500px; margin:auto; "> Solo Optimus Prime y los estrategas Autobots conocen los protocolos secretos de Cybertron. </p> <hr style="width:60%; border-color:#00f7ff;">  
 </div>
     <p>Autor: Joaquín Candañedo.<br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="./resources/CC_BY_SA.png" alt="Creative Commons Reconocimiento - Compartir Igual"></a></p>
 </div>
@@ -163,9 +166,13 @@ input{padding:12px;font-size:22px;text-align:center;width:180px;letter-spacing:6
 <button class="button" onclick="restartMission()">Reintentar</button>
 </div>
 
+<div id="teacherPanel"> <h3>⚡ TERMINAL ESTRATÉGICO AUTOBOT ⚡</h3> <b>Reto 1 – Bumblebee</b><br> f(0) = -5<br> |f(0)| = 5<br> 2 soluciones reales<br> Código → 7 <br><br> <b>Reto 2 – Ironhide</b><br> AV = 3<br> f(0) = -1/3<br> Numerador = 1<br> Código → 4 <br><br> <b>Reto 3 – Shockwave</b><br> Dominio: x ≥ 1/2<br> Extremo inferior = 1/2<br> Corte con X = 1/2<br> Código → 1 <br><br> <b>Reto 4 – Optimus Prime</b><br> AH = -2<br> |AH| = 2<br> f(0)= -1<br> |f(0)| = 1<br> Código → 3 <br><br> <hr> 🔐 <b>CÓDIGO FINAL</b><br><br> 7413 </div>
+
 <script>
 let totalTime = 0;
 let timerInterval = null;
+
+document.addEventListener("DOMContentLoaded", () => { document.getElementById("teacherPass") .addEventListener("input", function () { const panel = document.getElementById("teacherPanel"); const clave = this.value.toUpperCase(); if( clave === "AUTOBOT" || clave === "OPTIMUS" || clave === "PROFE" ){ panel.style.display = "block"; }else{ panel.style.display = "none"; } }); });
 
 // Sonido de botón
 function playClickSound(){
